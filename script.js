@@ -1,4 +1,4 @@
-const notes = document.querySelector("input");
+const notes = document.querySelector("input.textInsert");
 const btnInsert = document.querySelector(".divInsert button");
 const deleteAll = document.querySelector(".header button");
 const ul = document.querySelector("ul");
@@ -9,6 +9,7 @@ var livesCount = 5;
 
 deleteAll.onclick = () => {
   itensDB = [];
+  livesCount = 5;
   updateDB();
 };
 
@@ -32,6 +33,18 @@ function setItemDB() {
 
   const date = document.querySelector(".dateInsert").value;
 
+  // Verifica se a data selecionada é anterior à data atual
+  if (Date.parse(date) < Date.now()) {
+    alert("Data selecionada é anterior à data atual. Você perdeu uma vida!");
+    livesCount--;
+    checkLives();
+    if (livesCount <= 0) {
+      alert("Suas vidas acabaram! Você perdeu o jogo.");
+      location.reload();
+      return;
+    }
+  }
+
   itensDB.push({ item: notes.value, status: "", date: date });
   updateDB();
 }
@@ -47,6 +60,7 @@ function loadItens() {
   itensDB.forEach((item, i) => {
     insertItemTela(item.item, item.status, item.date, i);
   });
+  updateLives();
 }
 
 function insertItemTela(text, status, date, i) {
@@ -86,6 +100,31 @@ function done(chk, i) {
 function removeItem(i) {
   itensDB.splice(i, 1);
   updateDB();
+}
+
+function checkLife(i) {
+  const today = new Date();
+  const itemDate = new Date(itensDB[i].date);
+  const timeDiff = itemDate.getTime() - today.getTime();
+  const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+  if (diffDays < 0 && itensDB[i].status !== "checked") {
+    livesCount--;
+    updateLives();
+    if (livesCount === 0) {
+      alert("Game over!");
+    }
+  }
+}
+
+function updateLives() {
+  for (let i = 0; i < lives.length; i++) {
+    if (i < livesCount) {
+      lives[i].classList.add("active");
+    } else {
+      lives[i].classList.remove("active");
+    }
+  }
 }
 
 loadItens();

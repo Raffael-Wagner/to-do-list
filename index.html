@@ -5,35 +5,44 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do!</title>
+  <title>Do it for life</title>
   <link rel="stylesheet" href="style.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 
 <body>
-  <div class="to-do">
+  <header>
     <div class="header">
-      <div class="lives">
-        <span class="bx bxs-heart"></span>
-        <span class="bx bxs-heart"></span>
-        <span class="bx bxs-heart"></span>
-        <span class="bx bxs-heart"></span>
-        <span class="bx bxs-heart"></span>
-      </div>
-      <p>To-Do List</p>
-      <button><i class='bx bxs-trash-alt'></i></button>
+      <img src="/assets/heart_logo.svg" alt="" class="heart-logo">
+      <h1>Do it for life</h1>
     </div>
-    <hr />
-    <br />
+    <div class="lives">
+      <img src="/assets/heart_logo.svg" alt="">
+      <img src="/assets/heart_logo.svg" alt="">
+      <img src="/assets/heart_logo.svg" alt="">
+      <img src="/assets/heart_logo.svg" alt="">
+      <img src="/assets/heart_logo.svg" alt="">
+    </div>
+  </header>
+  <div class="to-do">
+    <p>Get things done, or loose your <span> life</span>.</p>
     <div class="divInsert">
-      <input class="textInsert" type="text" />
+      <input class="textInsert" type="text" maxlength="150" />
       <input class="dateInsert" type="date" />
-      <button><i class='bx bx-plus'></i></button>
+      <button><img src="/assets/add_button.svg" alt=""></button>
     </div>
 
     <ul></ul>
+    <div class="clear">
+      <button id="clear">Clear</button>
+    </div>
   </div>
+
+
   <script src="script.js"></script>
+
+  <footer class="rodape">Created by <a href="https://github.com/Raffael-Wagner" target="_blank">Raffael Wagner</a> e <a href="https://github.com/oihenrique" target="_blank">Henrique Gomes</a>.</footer>
 </body>
 
 </html>
