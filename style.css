@@ -1,148 +1,228 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap");
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-.lives {
-  display: flex;
-  color: rgb(103, 195, 80);
+  font-family: Fredoka;
+  background: #f2f2f2;
 }
 
 body {
+  text-align: center;
   display: flex;
-  justify-content: center;
-  background-color: #141414;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  margin: 47px 94px 94px 63px;
+}
+
+header,
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  gap: 10px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.to-do {
+  margin-bottom: 150px;
+}
+
+.to-do span {
+  color: #ee2626;
 }
 
 p {
-  display: flex;
-  justify-content: center;
-  font-size: xx-large;
-  font-weight: bold;
-  color: #ffffff;
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 37px;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  height: auto;
+  text-align: center;
+  line-height: 100px;
+}
+
+a {
+  text-decoration: none;
+  font-family: Fredoka;
+  font-size: 14px;
+  font-weight: 500;
+  size: 14px;
+  line-height: 16.94px;
+  color: #de0000;
+}
+
+a:hover {
+  color: #990101;
 }
 
 ul {
   display: flex;
   flex-direction: column-reverse;
-  margin-bottom: 20px;
-}
-
-.header button {
-  position: absolute;
-  right: 18%;
-  margin-top: -30px;
-}
-
-.header .lives {
-  position: absolute;
-}
-
-.header i {
-  font-size: 22px;
-}
-
-.to-do {
-  margin-top: 40px;
-  width: 60%;
-}
-
-.textInsert {
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
-  outline: none;
-  width: 90%;
-}
-
-.dateInsert {
-  border: none;
-  border-radius: 10px;
-  padding: 1px;
-}
-
-.divInsert {
-  padding: 10px;
-  background-color: lightgray;
-  border-radius: 10px;
-  display: flex;
-  box-shadow: 6px 5px 10px 0px grey;
-}
-
-button {
-  width: 10%;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-}
-
-.bx-plus {
-  font-size: 30px;
-  margin-left: 10px;
-  background-color: #323232;
-  border-radius: 50%;
-  padding: 5px;
-  color: rgb(103, 195, 80);
-}
-
-.bxs-trash-alt {
-  color: rgb(103, 195, 80);
-}
-
-.divLi {
-  margin-top: 20px;
-  padding: 10px;
-  background: lightgray;
-  border-radius: 10px;
-  box-shadow: 6px 5px 10px 0px rgb(112, 110, 110);
-  display: flex;
-  align-items: center;
-}
-
-.divLi span {
-  width: 80%;
-  color: rgb(68, 129, 53);
-}
-
-.divLi input {
-  width: 10%;
-  outline: none;
-  accent-color: currentcolor;
-}
-
-.divLi i {
-  font-size: 22px;
-  color: rgb(51, 149, 26);
-}
-
-li {
-  list-style-type: none;
+  margin-bottom: 25px;
+  max-width: 100%;
+  margin-left: -3px;
 }
 
 .line-through {
   text-decoration: line-through;
 }
 
-@media (max-width: 775px) {
-  input {
-    width: 70%;
+/* Animação */
+@keyframes pulse {
+  0% {
+    fill: red;
+    transform: scale(1);
   }
+  50% {
+    fill: pink;
+    transform: scale(1.2);
+  }
+  100% {
+    fill: red;
+    transform: scale(1);
+  }
+}
 
-  .divInsert button {
-    width: 30%;
-  }
+.heart-logo {
+  animation: pulse 1s infinite;
+}
 
-  i {
-    font-size: 30px;
-    padding: 0px;
-  }
+/**/
 
-  p {
-    font-size: x-large;
-  }
+.divInsert {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  align-items: center;
+}
+
+.textInsert {
+  width: 400px;
+  height: 30px;
+  padding: 10px;
+}
+
+.dateInsert,
+.divLi .data {
+  width: 120px;
+  height: 30px;
+  padding: 0 2px 0 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textInsert,
+.dateInsert,
+.data {
+  background: #f2f2f2;
+  border: 2px solid #161616;
+  border-radius: 10px;
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.divInsert button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.divLi {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  background-color: #f2f2f2;
+  margin-bottom: 10px;
+  justify-content: center;
+  gap: 25px;
+}
+
+.divLi span {
+  color: #de0000;
+  padding-right: 5px;
+  background: #f2f2f2;
+  border: 2px solid #161616;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.divLi input {
+  outline: none;
+  accent-color: currentcolor;
+}
+
+.divLi .texto {
+  display: inline-flex;
+  max-width: 400px;
+  width: 400px;
+  overflow: auto;
+  white-space: normal;
+  text-overflow: ellipsis;
+  align-items: center;
+  word-break: break-word;
+}
+
+.divLi button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 3px;
+}
+
+input {
+  margin-right: 2px;
+}
+
+#clear {
+  width: 90px;
+  height: 36px;
+  background: #ee2626;
+  border: 2px solid #161616;
+  border-radius: 10px;
+  font-family: "Fredoka";
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#clear:hover {
+  background-color: #de0000;
+}
+
+.rodape {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 0px;
+  margin-top: auto;
 }
