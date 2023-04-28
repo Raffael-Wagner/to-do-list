@@ -1,11 +1,9 @@
 const notes = document.querySelector("input.textInsert");
 const btnInsert = document.querySelector(".divInsert button");
-const deleteAll = document.querySelector(".header button");
+const deleteAll = document.querySelector(".clear button");
 const ul = document.querySelector("ul");
-const lives = document.querySelectorAll(".bx.bxs-heart");
 
 var itensDB = [];
-var livesCount = 5;
 
 deleteAll.onclick = () => {
   itensDB = [];
@@ -20,8 +18,14 @@ notes.addEventListener("keypress", (e) => {
 });
 
 btnInsert.onclick = () => {
-  if (notes.value != "") {
+  const text = notes.value;
+  const date = document.querySelector(".dateInsert").value;
+
+  if (text !== "" && date !== "") {
     setItemDB();
+  } else {
+    alert("A data é obrigatória!");
+    document.querySelector(".dateInsert").classList.add("required");
   }
 };
 
@@ -68,10 +72,9 @@ function insertItemTela(text, status, date, i) {
 
   li.innerHTML = `
     <div class="divLi">
-      <input type="checkbox" ${status} data-i=${i} onchange="done(this, ${i});" />
-      <span data-si=${i}>${text}</span>
-      <span class="date">${date}</span>
-      <button onclick="removeItem(${i})" data-i=${i}><i class='bx bx-trash'></i></button>
+      <span class="texto" data-si=${i}><input type="checkbox" ${status} data-i=${i} onchange="done(this, ${i});" />${text}</span>
+      <span class="data">${date}</span>
+      <button onclick="removeItem(${i})" data-i=${i}><img src="/assets/delete_button.svg" alt=""></button>
     </div>
     `;
   ul.appendChild(li);
@@ -94,7 +97,6 @@ function done(chk, i) {
   }
 
   updateDB();
-  checkLife(i);
 }
 
 function removeItem(i) {
