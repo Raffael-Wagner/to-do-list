@@ -19,8 +19,7 @@ header {
   margin: 47px 94px 94px 63px;
 }
 
-header,
-.header {
+header, .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
