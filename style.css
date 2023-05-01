@@ -106,8 +106,9 @@ ul {
   }
 }
 
-.heart-logo {
+.heart-logo:hover {
   animation: pulse 1s infinite;
+  cursor: pointer;
 }
 
 /**/
@@ -203,7 +204,7 @@ input {
 #clear {
   width: 90px;
   height: 36px;
-  background: #ee2626;
+  background: #de0000;
   border: 2px solid #161616;
   border-radius: 10px;
   font-family: "Fredoka";
@@ -213,7 +214,7 @@ input {
 }
 
 #clear:hover {
-  background-color: #de0000;
+  background-color: #990101;
 }
 
 .rodape {
@@ -225,4 +226,52 @@ input {
   text-align: center;
   padding: 0px;
   margin-top: auto;
+}
+
+.lives img {
+  display: inline-flex;
+  padding: 2px;
+}
+
+/* Modo dark */
+.dark {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+.dark .header {
+  background-color: #1f1f1f;
+}
+
+.dark .heart-logo {
+  color: #ff6961;
+}
+
+.dark * {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+.dark .textInsert,
+.dark .dateInsert {
+  background-color: #474747;
+}
+
+.dark .texto,
+.dark .data {
+  background-color: #474747;
+  color: #eee;
+}
+
+.dark .rodape a {
+  color: #de0000;
+}
+
+.dark .rodape a:hover {
+  color: #990101;
+}
+
+.dark .line-through {
+  text-decoration: line-through;
+  color: #de0000;
 }

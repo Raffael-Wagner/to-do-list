@@ -1,14 +1,21 @@
+/*Elementos do HTML */
 const notes = document.querySelector("input.textInsert");
 const btnInsert = document.querySelector(".divInsert button");
 const deleteAll = document.querySelector(".clear button");
 const ul = document.querySelector("ul");
 
+/*Dados do jogo */
+const maxItens = 20;
+let livesCount = 5;
 var itensDB = [];
 
+/*LÓGICA DO JOGO E FUNÇÕES */
+/*Botão clear para limpar todas as tarefas*/
 deleteAll.onclick = () => {
   itensDB = [];
   livesCount = 5;
   updateDB();
+  updateLivesImage();
 };
 
 notes.addEventListener("keypress", (e) => {
@@ -19,31 +26,38 @@ notes.addEventListener("keypress", (e) => {
 
 btnInsert.onclick = () => {
   const text = notes.value;
-  const date = document.querySelector(".dateInsert").value;
+  const dateInput = document.querySelector(".dateInsert");
+  const date = dateInput.value;
 
-  if (text !== "" && date !== "") {
-    setItemDB();
-  } else {
+  const minDate = new Date(Date.now());
+  const yyyy = minDate.getFullYear();
+  const mm = String(minDate.getMonth() + 1).padStart(2, "0");
+  const dd = String(minDate.getDate()).padStart(2, "0");
+  const minDateString = `${yyyy}-${mm}-${dd}`;
+  dateInput.setAttribute("min", minDateString);
+
+  text !== "" && date !== "" && setItemDB();
+  if (!date) {
     alert("A data é obrigatória!");
-    document.querySelector(".dateInsert").classList.add("required");
+    dateInput.classList.add("required");
   }
 };
 
 function setItemDB() {
-  if (itensDB.length >= 20) {
-    alert("Limite máximo de 20 itens atingido!");
+  if (itensDB.length >= maxItens) {
+    alert(`Limite máximo de ${maxItens} itens atingido!`);
     return;
   }
 
   const date = document.querySelector(".dateInsert").value;
 
-  // Verifica se a data selecionada é anterior à data atual
   if (Date.parse(date) < Date.now()) {
     alert("Data selecionada é anterior à data atual. Você perdeu uma vida!");
     livesCount--;
-    checkLives();
+    updateLivesImage();
     if (livesCount <= 0) {
       alert("Suas vidas acabaram! Você perdeu o jogo.");
+      deleteAll.click();
       location.reload();
       return;
     }
@@ -58,13 +72,18 @@ function updateDB() {
   loadItens();
 }
 
+const today = new Date().toISOString().split("T")[0];
+document.querySelector(".dateInsert").setAttribute("min", today);
+
 function loadItens() {
+  const today = new Date().toISOString().split("T")[0];
+  document.querySelector(".dateInsert").setAttribute("min", today);
   ul.innerHTML = "";
   itensDB = JSON.parse(localStorage.getItem("todolist")) ?? [];
   itensDB.forEach((item, i) => {
     insertItemTela(item.item, item.status, item.date, i);
   });
-  updateLives();
+  updateLivesImage();
 }
 
 function insertItemTela(text, status, date, i) {
@@ -91,12 +110,18 @@ function insertItemTela(text, status, date, i) {
 
 function done(chk, i) {
   if (chk.checked) {
+    if (livesCount < 5) {
+      livesCount++;
+    } else {
+      alert("Você já atingiu o limite máximo de vidas!");
+      return;
+    }
     itensDB[i].status = "checked";
   } else {
     itensDB[i].status = "";
   }
-
   updateDB();
+  updateLivesImage();
 }
 
 function removeItem(i) {
@@ -104,29 +129,40 @@ function removeItem(i) {
   updateDB();
 }
 
-function checkLife(i) {
-  const today = new Date();
-  const itemDate = new Date(itensDB[i].date);
-  const timeDiff = itemDate.getTime() - today.getTime();
-  const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-  if (diffDays < 0 && itensDB[i].status !== "checked") {
-    livesCount--;
-    updateLives();
-    if (livesCount === 0) {
-      alert("Game over!");
-    }
+/*Função de mudar a imagem quando perder vida */
+function updateLivesImage() {
+  const lives = document.querySelector(".lives");
+  lives.innerHTML = "";
+  for (let i = 0; i < livesCount; i++) {
+    const img = document.createElement("img");
+    img.src = "/assets/heart_logo.svg";
+    lives.appendChild(img);
+  }
+  for (let i = 0; i < 5 - livesCount; i++) {
+    const img = document.createElement("img");
+    img.src = "/assets/heart_gray.png";
+    lives.appendChild(img);
   }
 }
 
-function updateLives() {
-  for (let i = 0; i < lives.length; i++) {
-    if (i < livesCount) {
-      lives[i].classList.add("active");
-    } else {
-      lives[i].classList.remove("active");
-    }
+/*Modo dark */
+const heartLogo = document.querySelector(".heart-logo");
+const body = document.querySelector("body");
+const header = document.querySelector("header");
+const all = document.querySelector("*");
+
+heartLogo.addEventListener("click", function () {
+  if (body.classList.contains("dark")) {
+    body.classList.remove("dark");
+    header.classList.remove("dark");
+    heartLogo.classList.remove("dark");
+    all.classList.remove("dark");
+  } else {
+    body.classList.add("dark");
+    header.classList.add("dark");
+    heartLogo.classList.add("dark");
+    all.classList.add("dark");
   }
-}
+});
 
 loadItens();
