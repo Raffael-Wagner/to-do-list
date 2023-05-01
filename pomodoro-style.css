@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Fredoka", sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    width: 940px;
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: #f2f2f2;
+}
+
+header {
+    margin: 47px 0;
+}
+
+header, .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+    gap: 10px;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.message-text {
+    font-size: 18px;
+    margin: 8.5% 0 5.7% 0;
+    color: #161616;
+}
+.pomodoro-space {
+    margin: 0 auto;
+}
+.timer-box {
+    width: 400px;
+    height: 250px;
+    background: rgba(238, 38, 38, 0.7);
+    border: 2px solid #161616;
+    box-shadow: 4px 3px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.pomodoro-top-buttons {
+    margin: 23px auto 5px auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.top-button {
+    width: 85px;
+    height: 22px;
+    background: rgba(170, 28, 28, 0.7);
+    border: none;
+    border-radius: 5px;
+    color: #f2f2f2;
+    font-size: 12px;
+    font-weight: 500;
+}
+.top-button:active {
+    background-color: rgba(52, 130, 72, 0.7);
+}
+.timer-text {
+    font-size: 96px;
+    font-weight: 500;
+    color: #f2f2f2;
+    margin-bottom: 10px;
+}
+.start-button, .break-button {
+    display: inline-block;
+    width: 100px;
+    height: 37.5px;
+    background: #f2f2f2;
+    border: 2px solid #D9D9D9;
+    border-radius: 5px;
+    margin: 0px 0px 23px 0px;
+    padding: 7px 30px;
+}
+.break-button {
+    display: none;
+}
+.start-button:active, .break-button:active {
+    background-color: #54D173;
+}
+.pomodoro-counter {
+    font-size: 14px;
+    color: #161616;
+    margin-top: 2.5em;
+}
+.rewards {
+    margin: 2em auto;
+}
+.rewards h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #161616;
+    margin: 2em 0 1em 0;
+}
