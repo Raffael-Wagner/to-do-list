@@ -10,7 +10,7 @@
 body {
     margin: 0 auto;
     width: 940px;
-    min-height: 100vh;
+    height: 100vh;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -39,13 +39,13 @@ header, .header {
     letter-spacing: 0em;
     text-align: left;
 }
+main {
+    margin: 0 auto;
+}
 .message-text {
     font-size: 18px;
     margin: 8.5% 0 5.7% 0;
     color: #161616;
-}
-.pomodoro-space {
-    margin: 0 auto;
 }
 .timer-box {
     width: 400px;

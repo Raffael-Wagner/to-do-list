@@ -9,27 +9,28 @@
     <link rel="stylesheet" href="pomodoro-style.css">
 </head>
 <body>
-    <header>
-        <div class="header">
-          <img src="./assets/heart_logo.svg" alt="" class="heart-logo">
-          <h1>Do it for life</h1>
+  <header>
+    <div class="header">
+      <img src="./assets/heart_logo.svg" alt="" class="heart-logo">
+      <h1>Do it for life</h1>
+    </div>
+  </header>
+    <main>
+    <p class="message-text">Be focused for 25 minutes.</p>
+    <section class="pomodoro-space">
+      <div class="timer-box">
+        <div class="pomodoro-top-buttons">
+          <button class="top-button" onclick="">pomodoro</button>
+          <button class="top-button" onclick="">short break</button>
+          <button class="top-button" onclick="">long break</button>
         </div>
-      </header>
-      <p class="message-text">Be focused for 25 minutes.</p>
-      <section class="pomodoro-space">
-        <div class="timer-box">
-          <div class="pomodoro-top-buttons">
-            <button class="top-button" onclick="">pomodoro</button>
-            <button class="top-button" onclick="">short break</button>
-            <button class="top-button" onclick="">long break</button>
-          </div>
-          <div class="timer">
-            <p class="timer-text">25:00</p>
-          </div>
-          <button class="start-button">Start</button>
-          <button class="break-button">Break</button>
-          <p class="pomodoro-counter">Pomodoro Nº 1</p>
+        <div class="timer">
+          <p class="timer-text"><span id="minutes"></span>:<span id="seconds"></span></p>
         </div>
+        <button class="start-button" onclick="setInterval(startPomodoro, 1000)">Start</button>
+        <button class="break-button">Break</button>
+        <p class="pomodoro-counter">Pomodoro Nº 1</p>
+      </div>
       </section>
       <section class="rewards">
         <h3>Suas recompensas:</h3>
@@ -37,5 +38,8 @@
           <p>Você não tem recompensas ainda :\</p>
         </div>
       </section>
+    </main>
+
+    <script src="pomodoro_scp.js"></script>
 </body>
-</html>
+</html> 
