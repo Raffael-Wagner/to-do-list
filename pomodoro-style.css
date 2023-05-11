@@ -80,7 +80,7 @@ main {
     color: #f2f2f2;
     margin-bottom: 10px;
 }
-.start-button, .break-button {
+.startButton, .breakButton {
     display: inline-block;
     width: 100px;
     height: 37.5px;
@@ -90,10 +90,10 @@ main {
     margin: 0px 0px 23px 0px;
     padding: 7px 30px;
 }
-.break-button {
+.breakButton {
     display: none;
 }
-.start-button:active, .break-button:active {
+.startButton:active, .breakButton:active {
     background-color: #54D173;
 }
 .pomodoro-counter {
