@@ -6,32 +6,27 @@
     padding: 0;
     font-family: "Fredoka", sans-serif;
 }
-
 body {
-    margin: 0 auto;
-    width: 940px;
-    height: 100vh;
-    text-align: center;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    width: 940px;
+    min-height: 100vh;
+    text-align: center;
     background: #f2f2f2;
 }
-
 header {
-    margin: 47px 0;
+    margin: 5.6vh 0;
 }
-
 header, .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-
 .header {
     gap: 10px;
 }
-
 .header h1 {
     font-size: 24px;
     font-weight: 600;
@@ -40,7 +35,7 @@ header, .header {
     text-align: left;
 }
 main {
-    margin: 0 auto;
+    margin: auto;
 }
 .message-text {
     font-size: 18px;
@@ -109,4 +104,51 @@ main {
     font-weight: 500;
     color: #161616;
     margin: 2em 0 1em 0;
+}
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    height: auto;
+    text-align: center;
+    line-height: 100px;
+}
+a {
+    text-decoration: none;
+    font-family: Fredoka;
+    font-size: 14px;
+    font-weight: 500;
+    size: 14px;
+    line-height: 16.94px;
+    color: #de0000;
+}
+a:hover {
+    color: #990101;
+}
+
+/* 1080px > WIDTH DEVICES */
+@media screen and (max-width: 1080px) {
+    body {
+        width: 100vw;
+        height: auto;
+    }
+    header {
+        margin: 4vh 0;
+    }
+    .header {
+        margin: 0 auto;
+    }
+}
+
+/* 480px > WIDTH DEVICES */
+@media screen and (max-width: 480px) {
+    body {
+        width: 100%;
+    }
+    .timer-box {
+        width: 80vw;
+    }
+    .top-button {
+        width: 70px;
+    }
 }

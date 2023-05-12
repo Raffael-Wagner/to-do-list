@@ -9,6 +9,7 @@ seconds.innerHTML = '00';
 
 let min = 25;
 let sec = 60;
+let intervalId;
 
 function startPomodoro() {
     startButton[0].style.display = "none";
@@ -44,8 +45,14 @@ function startPomodoro() {
     }
 }
 
+function defInterval() {
+    intervalId = setInterval(startPomodoro, 1000)
+}
+
 function breakPomodoro() {
-    startButton[0].fun
+    setTimeout(() => {
+        clearInterval(intervalId);
+    }, 0);
 
     startButton[0].style.display = "inline-block";
     breakButton[0].style.display = "none";
