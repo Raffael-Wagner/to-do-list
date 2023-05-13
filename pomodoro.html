@@ -20,14 +20,14 @@
     <section class="pomodoro-space">
       <div class="timer-box">
         <div class="pomodoro-top-buttons">
-          <button class="top-button" onclick="">pomodoro</button>
-          <button class="top-button" onclick="">short break</button>
-          <button class="top-button" onclick="">long break</button>
+          <button class="top-button" onclick="pomodoroButton()">pomodoro</button>
+          <button class="top-button" onclick="shortBreak()">short break</button>
+          <button class="top-button" onclick="longBreak()">long break</button>
         </div>
         <div class="timer">
           <p class="timer-text"><span id="minutes"></span>:<span id="seconds"></span></p>
         </div>
-        <button class="startButton" onclick="defInterval(true)">Start</button>
+        <button class="startButton" onclick="defInterval()">Start</button>
         <button class="breakButton" onclick="breakPomodoro()">Break</button>
         <p class="pomodoro-counter">Pomodoro Nº 1</p>
       </div>
@@ -40,7 +40,7 @@
       </section>
     </main>
     <footer class="rodape">
-      Created by <a href="https://github.com/Raffael-Wagner" target="_blank">Raffael Wagner</a> e <a href="https://github.com/oihenrique" target="_blank">Henrique Gomes</a>.
+      Desenvolvido por <a href="https://github.com/Raffael-Wagner" target="_blank">Raffael Wagner</a> e <a href="https://github.com/oihenrique" target="_blank">Henrique Gomes</a>.
     </footer>
     <script src="pomodoro_scp.js"></script>
 </body>

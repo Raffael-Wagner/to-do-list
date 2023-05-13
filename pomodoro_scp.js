@@ -2,7 +2,8 @@ var minutos = document.getElementById("minutes");
 var seconds = document.getElementById("seconds");
 const startButton = document.getElementsByClassName("startButton");
 const breakButton = document.getElementsByClassName("breakButton");
-
+const timerBox = document.getElementsByClassName("timer-box");
+const topButtons = document.getElementsByClassName("top-button");
 
 minutos.innerHTML = '25';
 seconds.innerHTML = '00';
@@ -14,7 +15,11 @@ let intervalId;
 function startPomodoro() {
     startButton[0].style.display = "none";
     breakButton[0].style.display = "inline-block";
-
+    
+    if (min == 0 && sec == 0) {
+        min = 25;
+        sec = 60;
+    }
     if (min == 25) {
         min --;
     }
@@ -41,13 +46,66 @@ function startPomodoro() {
 
     if (min == 0  && sec == 0) {
         sec ++
-        clearInterval(startPomodoro);
+        breakPomodoro()
+        min = 25;
+        sec = 60;
+    }
+}
+
+function shortBreak() {
+    minutos.innerHTML = "05";
+    seconds.innerHTML = "00";
+
+    timerBox[0].style.background = "rgba(26, 176, 63, 0.7)"
+
+    min = 5;
+    sec = 60;
+
+    breakPomodoro()
+
+    if (min == 5) {
+        min --;
+    }
+}
+
+
+function longBreak() {
+    minutos.innerHTML = "15";
+    seconds.innerHTML = "00";
+
+    timerBox[0].style.background = "rgba(26, 174, 176, 0.7)"
+
+    min = 15;
+    sec = 60;
+
+    breakPomodoro()
+    
+    if (min == 15) {
+        min --;
+    }
+}
+
+
+function pomodoroButton() {
+    minutos.innerHTML = "25";
+    seconds.innerHTML = "00";
+
+    timerBox[0].style.background = "rgba(238, 38, 38, 0.7)"
+
+    min = 25;
+    sec = 60;
+
+    breakPomodoro()
+    
+    if (min == 25) {
+        min --;
     }
 }
 
 function defInterval() {
     intervalId = setInterval(startPomodoro, 1000)
 }
+
 
 function breakPomodoro() {
     setTimeout(() => {
