@@ -57,6 +57,9 @@ function shortBreak() {
     seconds.innerHTML = "00";
 
     timerBox[0].style.background = "rgba(26, 176, 63, 0.7)"
+    topButtons[0].style.background = "rgba(21, 133, 58, 0.7)"
+    topButtons[1].style.background = "rgba(21, 133, 58, 0.7)"
+    topButtons[2].style.background = "rgba(21, 133, 58, 0.7)"
 
     min = 5;
     sec = 60;
@@ -74,6 +77,9 @@ function longBreak() {
     seconds.innerHTML = "00";
 
     timerBox[0].style.background = "rgba(26, 174, 176, 0.7)"
+    topButtons[0].style.background = "rgba(21, 78, 133, 0.7)"
+    topButtons[1].style.background = "rgba(21, 78, 133, 0.7)"
+    topButtons[2].style.background = "rgba(21, 78, 133, 0.7)"
 
     min = 15;
     sec = 60;
@@ -91,6 +97,9 @@ function pomodoroButton() {
     seconds.innerHTML = "00";
 
     timerBox[0].style.background = "rgba(238, 38, 38, 0.7)"
+    topButtons[0].style.background = "rgba(170, 28, 28, 0.7)"
+    topButtons[1].style.background = "rgba(170, 28, 28, 0.7)"
+    topButtons[2].style.background = "rgba(170, 28, 28, 0.7)"    
 
     min = 25;
     sec = 60;
