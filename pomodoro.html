@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro - Do it for life</title>
     <link rel="favicon icon" href="assets/heart_logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="pomodoro-style.css">
+    <link rel="stylesheet" href="pomodoroStyle.css">
 </head>
 <body>
   <header>
@@ -27,10 +27,10 @@
         <div class="timer">
           <p class="timer-text"><span id="minutes"></span>:<span id="seconds"></span></p>
         </div>
-        <button class="startButton" onclick="defInterval()">Start</button>
+        <button class="startButton" onclick="startPomodoroCount()">Start</button>
         <button class="breakButton" onclick="breakPomodoro()">Break</button>
-        <p class="pomodoro-counter">Pomodoro Nº 1</p>
       </div>
+      <p class="pomodoro-counter">Pomodoro Nº <span id="pomodoroCountNumber"></span></p>
       </section>
       <section class="rewards">
         <h3>Suas recompensas:</h3>
@@ -42,6 +42,6 @@
     <footer class="rodape">
       Desenvolvido por <a href="https://github.com/Raffael-Wagner" target="_blank">Raffael Wagner</a> e <a href="https://github.com/oihenrique" target="_blank">Henrique Gomes</a>.
     </footer>
-    <script src="pomodoro_scp.js"></script>
+    <script src="pomodoroScript.js"></script>
 </body>
 </html> 
