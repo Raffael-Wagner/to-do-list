@@ -114,6 +114,7 @@ function done(chk, i) {
       livesCount++;
     } else {
       alert("Você já atingiu o limite máximo de vidas!");
+       document.querySelector(`[data-si="${i}"]`).classList.add("line-through");
       return;
     }
     itensDB[i].status = "checked";
