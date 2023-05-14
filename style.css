@@ -1,10 +1,19 @@
+/**
+* Do it for life Page Style
+* 
+* O design desta página foi feito no Figma por Henrique Gomes, sua conversão para código HTML e CSS foi feita por Raffael Wagner. Suas cores principais fazem referência à um tomate, que é o símbolo do pomodoro.
+* 
+* @author Raffael Wagner
+*/
+
+
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Fredoka;
+  font-family: "Fredoka", sans-serif;
   background: #f2f2f2;
 }
 
