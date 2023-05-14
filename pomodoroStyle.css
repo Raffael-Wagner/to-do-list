@@ -1,3 +1,11 @@
+/**
+* Pomodoro Page Style
+* 
+* O design desta página foi feito no Figma por Henrique Gomes, bem como sua conversão para código HTML e CSS. Suas cores principais fazem referência à um tomate, que é o símbolo do pomodoro.
+* 
+* @author Henrique Gomes
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap");
 
 * {
