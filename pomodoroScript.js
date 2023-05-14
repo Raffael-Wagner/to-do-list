@@ -1,3 +1,5 @@
+const pomodoroSound = new Audio("assets/pomodoro/pomodoro_sound_orangefreesounds.mp3");
+
 /* Variáveis dos elementos HTML referentes a minutos e segundos */
 var minutos = document.getElementById("minutes");
 var seconds = document.getElementById("seconds");
@@ -155,6 +157,7 @@ function startPomodoro() {
     /* Retorna aos valores padrões das variáveis "min" e "sec" para 25 e 60, respectivamente. */
     if (min == 0  && sec == 0) {
 
+        pomodoroSound.play();
         breakPomodoro()
         min = 25;
         sec = 60;
