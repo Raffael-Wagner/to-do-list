@@ -135,12 +135,12 @@ function updateLivesImage() {
   lives.innerHTML = "";
   for (let i = 0; i < livesCount; i++) {
     const img = document.createElement("img");
-    img.src = "/assets/heart_logo.svg";
+    img.src = "./assets/heart_logo.svg";
     lives.appendChild(img);
   }
   for (let i = 0; i < 5 - livesCount; i++) {
     const img = document.createElement("img");
-    img.src = "/assets/heart_gray.png";
+    img.src = "./assets/heart_gray.png";
     lives.appendChild(img);
   }
 }
